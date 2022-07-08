@@ -1,0 +1,746 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "DM Sans", sans-serif;
+  /* Preguntar porque no está funcionando */
+}
+.conteiner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.5fr 0.7fr 0.5fr 0.7fr 0.5fr 0.2fr;
+  grid-template-areas:
+    "nav"
+    "header"
+    "nosotrossection"
+    "opportunities"
+    "newsconteiner"
+    "contactconteiner"
+    "footer";
+  max-width: 100%;
+}
+
+/* Broser */
+
+.browser {
+  grid-area: nav;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px;
+}
+.logoimg {
+  /* width: 50%; */
+  width: 150px;
+}
+.sections {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: flex-start;
+}
+.button {
+  background-color: rgb(119, 73, 248);
+  color: white;
+  padding: 10px 20px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 20px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  max-height: 100%;
+  max-width: 100%;
+  transform: translate(-50%, -50%);
+}
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img-modal register";
+  background-color: white;
+  /* max-width: 100%;
+  max-height: 100%; */
+}
+.img-modal {
+  grid-area: img-modal;
+  max-width: 100%;
+}
+.register-div {
+  grid-area: register;
+}
+.get-back-modal-img {
+  transform: scaleX(-1);
+}
+.register-div h3 {
+  text-align: center;
+  margin: 10px;
+}
+.mi-empresa,
+.mi-organizacion {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img text";
+  padding: 10px;
+  gap: 10px;
+}
+.img-maletin,
+.img-persona {
+  background-color: rgb(28, 120, 253);
+  position: relative;
+  grid-area: img;
+}
+.img-persona {
+  background-color: rgb(82, 39, 204);
+}
+.img-maletin img,
+.img-persona img {
+  width: 50px;
+  top: 10%;
+  left: 20%;
+  position: absolute;
+}
+.mi-empresa-text {
+  grid-area: text;
+  color: rgb(28, 120, 253);
+  position: relative;
+}
+.mi-empresa-text p,
+.mi-organizacion-text p {
+  color: black;
+}
+.mi-organizacion-text {
+  grid-area: text;
+  color: rgb(82, 39, 204);
+  position: relative;
+}
+.mi-empresa-text img,
+.mi-organizacion-text img {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Header */
+
+.header {
+  /* background-color: black; */ /*Preguntar como poner color 
+                                  solido sobre la imagen y bajarle 
+                                  intensidad*/
+  grid-area: header;
+  color: white;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+.headerimg {
+  width: 100%;
+  opacity: 0.9;
+  height: 100%;
+  object-fit: cover;
+}
+.headertext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*preguntar que hace*/
+}
+
+/* "Nosotros" */
+
+.nosotrossection {
+  grid-area: nosotrossection;
+  background-color: rgb(82, 152, 255);
+  padding: 80px 120px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "art1"
+    "art2";
+  height: 1200px;
+}
+.article1 {
+  grid-area: art1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 50px 0px 0px 0px;
+}
+.img1 {
+  /* grid-area: img1; */
+  width: 50%;
+  object-fit: cover;
+  height: 90%;
+  margin: 0px 50px 0px 0px;
+}
+.text {
+  width: 50%;
+  text-align: justify;
+  font-size: 20px;
+}
+.text h2 {
+  margin: 0px 0px 20px 0px;
+}
+.article2 {
+  grid-area: art2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 30px 0px 0px 0px;
+}
+.img2 {
+  width: 50%;
+  object-fit: cover;
+  height: 80%;
+  margin: 0px 0px 0px 50px;
+}
+
+/* Oppotunities (colour cards) */
+
+.opportunities-conteiner {
+  background-color: white;
+  grid-area: opportunities;
+  height: 500px;
+}
+.opportunities-text {
+  position: relative;
+  text-align: center;
+  color: black;
+  margin: 50px 100px;
+}
+.opportunities-text h2 {
+  margin: 50px 0px;
+}
+/* .opportunities-text p {
+  text-align: center;
+} */
+.opportunities-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.red-card {
+  background-color: rgb(220, 53, 69);
+  color: white;
+  height: 200px;
+  width: 250px;
+  border-radius: 10%;
+  position: relative;
+}
+.red-card-img1 {
+  position: absolute;
+  width: 50px;
+  top: 20px;
+  left: 20px;
+  /* height: 100px; */
+}
+.red-card-img2 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.red-card h3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-size: 25px;
+}
+
+.yellow-card {
+  background-color: rgb(255, 156, 7);
+  color: white;
+  height: 200px;
+  width: 250px;
+  border-radius: 10%;
+  position: relative;
+}
+.yellow-card-img1 {
+  position: absolute;
+  width: 90px;
+  top: 30px;
+  left: 20px;
+  /* height: 100px; */
+}
+.yellow-card-img2 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.yellow-card h3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-size: 25px;
+}
+
+.green-card {
+  background-color: rgb(40, 167, 69);
+  color: white;
+  height: 200px;
+  width: 250px;
+  border-radius: 10%;
+  position: relative;
+}
+.green-card-img1 {
+  position: absolute;
+  width: 90px;
+  top: 20px;
+  left: 20px;
+  /* height: 100px; */
+}
+.green-card-img2 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.green-card h3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-size: 25px;
+}
+
+.blue-card {
+  background-color: rgb(23, 162, 184);
+  color: white;
+  height: 200px;
+  width: 250px;
+  border-radius: 10%;
+  position: relative;
+}
+.blue-card-img1 {
+  position: absolute;
+  width: 90px;
+  top: 20px;
+  left: 20px;
+  /* height: 100px; */
+}
+.blue-card-img2 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.blue-card h3 {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-size: 25px;
+}
+
+/* News */
+
+.news-conteiner {
+  grid-area: newsconteiner;
+  background-color: rgb(82, 152, 255);
+  max-width: 100%;
+  /* height: 700px; */
+  /* padding: 80px 120px; */
+  /* justify-content: center;
+  align-content: center; */
+}
+.news-text {
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+.news-text h3 {
+  font-size: 50px;
+}
+.div-carousel {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  max-width: 100%;
+  position: relative;
+}
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "img-p-div"
+    "info-card"
+    "info-card";
+  height: 500px;
+  width: 300px;
+  border-radius: 10px;
+  /* display: none; */
+}
+.img-and-p-div {
+  grid-area: img-p-div;
+  position: relative;
+  /* height: 100%; */
+}
+.p-div {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  background-color: rgb(119, 73, 248);
+  color: white;
+  padding: 3px 10px;
+  border-style: hidden;
+  border-color: white;
+  border-radius: 20px;
+}
+.img-card {
+  object-fit: cover;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+}
+.info-card {
+  grid-area: info-card;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 0.5fr;
+  grid-template-areas:
+    "date-time"
+    "h4"
+    "text"
+    "button-vermas";
+  /* position: relative; */
+}
+.date-time {
+  grid-area: date-time;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* position: absolute; */
+}
+.date-time img {
+  width: 20px;
+  height: 20px;
+}
+.info-card h4 {
+  grid-area: h4;
+}
+.button-vermas {
+  grid-area: button-vermas;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.button-vermas img {
+  width: 20px;
+  height: 20px;
+}
+.prev,
+.next {
+  cursor: auto;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  /* border-radius: 0 3px 3px 0;
+  user-select: none; */
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.dot {
+  cursor: auto;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  /* transition: background-color 0.6s ease; */
+}
+
+/* Contact Section */ /*Preguntar si se podrían usar id en vez de 
+                        class para la sección de cnotacto dado que 
+                        suele haber una por página, osea es única */
+
+.contact-conteiner {
+  grid-area: contactconteiner;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "img form";
+  padding: 50px;
+  gap: 25px;
+  height: 100px;
+}
+.contact-conteiner img {
+  grid-area: img;
+  width: 100%;
+  object-fit: cover;
+  height: 60%;
+}
+.contact-conteiner form {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: "1fr 1fr";
+  grid-template-rows: "1fr 1fr 1fr 1fr";
+  grid-template-areas:
+    "h3 h3"
+    "text-dato message"
+    "email message"
+    "button button";
+  gap: 20px;
+  height: 100%;
+}
+.contact-conteiner form h3 {
+  grid-area: h3;
+}
+.text-dato {
+  grid-area: text-dato;
+}
+.email {
+  grid-area: email;
+}
+.message {
+  grid-area: message;
+  resize: none;
+}
+.contact-conteiner form button {
+  grid-area: button;
+  background-color: rgb(119, 73, 248);
+  color: white;
+  padding: 10px 20px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 20px;
+  width: 15%;
+  align-content: center;
+}
+
+/* Footer */
+
+footer {
+  grid-area: footer;
+  background-color: rgb(82, 39, 204);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "footer-logo footer-sections social-medias";
+  gap: 20px;
+  padding: 50px;
+}
+hr {
+  margin: 10px 0px;
+}
+.footer-logo {
+  grid-area: footer-logo;
+  width: 150px;
+}
+.footer-sections {
+  grid-area: footer-sections;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.social-medias {
+  grid-area: social-medias;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "p p p"
+    "facebook twitter instagram";
+}
+.social-medias p {
+  grid-area: p;
+  font-size: 20px;
+}
+.facebook {
+  grid-area: facebook;
+  width: 25px;
+}
+.twitter {
+  grid-area: twitter;
+  width: 25px;
+}
+.instagram {
+  grid-area: instagram;
+  width: 20px;
+}
+
+/* Responsive Designs */
+
+@media (max-width: 390px) {
+  .conteiner {
+    height: 100vh;
+    width: 100%;
+  }
+  /* Browser */
+
+  .browser {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "logo  button"
+      "sections sections";
+    justify-content: center;
+    padding: 30px 0px 20px 50px;
+    margin: 0px;
+  }
+  .logoimg {
+    grid-area: logo;
+  }
+  .button {
+    grid-area: button;
+  }
+  .sections {
+    grid-area: sections;
+    display: flex;
+    flex-direction: row;
+  }
+  /* Header */
+
+  .header {
+    max-width: 100%;
+  }
+  .headertext {
+    max-width: 100%;
+  }
+
+  /* Solutions */
+
+  .nosotrossection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+  }
+  .text {
+    width: 100%;
+  }
+  .article1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "text-art-1"
+      "img1";
+    padding: 0px;
+  }
+  .text-art-1 {
+    grid-area: text-art-1;
+    padding: 15px;
+    margin: 0px;
+    font-size: 15px;
+    width: 100%;
+  }
+  .img1 {
+    grid-area: img1;
+    width: 100vw;
+    margin: 0px;
+    padding: 15px;
+    height: 100%;
+  }
+  .article2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "text-art-2"
+      "img2";
+  }
+  .text-art-2 {
+    grid-area: text-art-2;
+    padding: 15px;
+    margin: 0px;
+    font-size: 15px;
+    max-width: 100%;
+  }
+  .img2 {
+    grid-area: img2;
+    width: 100vw;
+    margin: 0px;
+    padding: 15px;
+    height: 85%;
+  }
+
+  /* Colour Cards */
+
+  .opportunities-conteiner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 100vw;
+  }
+  .opportunities-text {
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px 30px 15px 30px;
+  }
+  .opportunities-text h2 {
+    margin: 30px 0px;
+  }
+  .opportunities-cards {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+  }
+  .red-card,
+  .yellow-card,
+  .green-card,
+  .blue-card {
+    width: 100%;
+  }
+
+  /* Events Cards */
+
+  .news-conteiner {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    max-width: 100vw;
+  }
+  .news-text {
+    max-width: 100%;
+    margin: 0px;
+    padding: 30px 0px;
+    text-align: center;
+  }
+  .div-carousel {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    margin: 0px 0px 0px 40px;
+  }
+}
